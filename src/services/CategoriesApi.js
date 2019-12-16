@@ -4,14 +4,10 @@ export default {
    
     getCategories: async (url, resp) => {
         try {
-            const baseURL = 'https://api.mercadolibre.com/sites/MLB/'
+            const baseURL = 'https://cors-anywhere.herokuapp.com/https://api.mercadolibre.com'
             const options ={
-                url: `${baseURL}/${url}`,
+                url: `${baseURL}/sites/MLB/${url}`,
                 method: 'get',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept':'application/json'
-                }
             }
             const res = await axios(options)
             return resp(res)
